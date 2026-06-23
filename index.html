@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ashwin & Ayushi Reception</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+</head>
+
+<body>
+
+<button id="musicBtn">Play Music</button>
+
+<div class="sparkles"></div>
+
+<div id="flipbook">
+  <div class="page zoom-page">
+    <img src="images/page1-cover.png">
+  </div>
+
+  <div class="page zoom-page">
+    <img src="images/page2-photo.jpg">
+  </div>
+
+  <div class="page zoom-page">
+    <img src="images/page3-details.png">
+  </div>
+
+  <div class="page zoom-page">
+    <img src="images/page4-thankyou.png">
+  </div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="audio/music.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="flipSound">
+  <source src="audio/flip.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
