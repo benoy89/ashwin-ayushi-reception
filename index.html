@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#0d1b2a">
   <title>Ashwin & Ayushi Reception</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,6 +15,14 @@
 <body>
 
 <button id="musicBtn">Play Music</button>
+<button id="shareBtn">Share</button>
+
+<div id="loader">
+  <div class="loader-mandala">A&A</div>
+  <p>Loading Invitation...</p>
+</div>
+
+<div id="swipeHint">Swipe or tap to turn page →</div>
 
 <div class="sparkles"></div>
 
@@ -35,6 +44,8 @@
   </div>
 </div>
 
+<button id="shareBtn">Share</button>
+
 <audio id="bgMusic" loop>
   <source src="audio/music.mp3" type="audio/mpeg">
 </audio>
@@ -44,5 +55,8 @@
 </audio>
 
 <script src="script.js"></script>
+<script>
+  window.scrollTo(0,1);
+</script>
 </body>
 </html>
