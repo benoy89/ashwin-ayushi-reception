@@ -33,9 +33,17 @@ body {
 }
 
 @keyframes slowZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.04); }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
 }
+
+/* ===========================
+   Music Button
+=========================== */
 
 #musicBtn {
   position: fixed;
@@ -46,9 +54,14 @@ body {
   border: none;
   border-radius: 20px;
   background: gold;
-  color: black;
+  color: #111;
   font-weight: bold;
+  cursor: pointer;
 }
+
+/* ===========================
+   Share Button
+=========================== */
 
 #shareBtn {
   position: fixed;
@@ -59,10 +72,10 @@ body {
   height: 42px;
   border: none;
   border-radius: 50%;
-  background: white;
+  background: rgba(255,255,255,.9);
   color: #111;
-  font-weight: bold;
   font-size: 0;
+  cursor: pointer;
 }
 
 #shareBtn::before {
@@ -70,26 +83,42 @@ body {
   font-size: 22px;
 }
 
+/* ===========================
+   Swipe Hint
+=========================== */
+
 .swipe-hint {
   position: fixed;
   bottom: 24px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: #f7d98b;
-  font-size: 13px;
-  font-family: serif;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 999;
-  text-shadow: 0 0 8px gold;
-  animation: fadeHint 2s infinite;
+
+  width: 90%;
+  text-align: center;
+
+  color: #6B0F1A;          /* Deep Burgundy */
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  text-shadow:
+      0 1px 2px rgba(255,255,255,.75),
+      0 0 6px rgba(255,255,255,.4);
+
   pointer-events: none;
+  animation: fadeHint 2s infinite;
 }
 
 .hand-swipe {
-  font-size: 34px;
   display: inline-block;
+  font-size: 34px;
+  margin-bottom: 3px;
+
+  filter: drop-shadow(0 0 5px rgba(107,15,26,.35));
+
   animation: swipeLeft 1.8s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px gold);
 }
 
 .swipe-text {
@@ -97,33 +126,51 @@ body {
 }
 
 .music-note {
-  margin-top: 4px;
-  font-size: 12px;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #6B0F1A;
 }
 
+/* Hand Animation */
+
 @keyframes swipeLeft {
+
   0% {
-    transform: translateX(45px);
+    transform: translateX(40px);
     opacity: 0;
   }
+
   25% {
     opacity: 1;
   }
-  70% {
-    transform: translateX(-45px);
+
+  75% {
+    transform: translateX(-40px);
     opacity: 1;
   }
+
   100% {
-    transform: translateX(-60px);
+    transform: translateX(-55px);
     opacity: 0;
   }
-}
 
+}
 
 @keyframes fadeHint {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
+
+  0%,100% {
+    opacity: .75;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
 }
+
+/* ===========================
+   Loader
+=========================== */
 
 #loader {
   position: fixed;
@@ -131,26 +178,39 @@ body {
   background: #02040a;
   color: gold;
   z-index: 99999;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: serif;
+
+  font-family: Georgia, serif;
 }
 
 .loader-mandala {
   width: 120px;
   height: 120px;
+
   border: 2px solid gold;
   border-radius: 50%;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   font-size: 32px;
+
   animation: rotateMandala 4s linear infinite;
 }
 
 @keyframes rotateMandala {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
 }
