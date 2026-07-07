@@ -33,17 +33,9 @@ body {
 }
 
 @keyframes slowZoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.04);
-  }
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
 }
-
-/* ===========================
-   Music Button
-=========================== */
 
 #musicBtn {
   position: fixed;
@@ -58,10 +50,6 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
-
-/* ===========================
-   Share Button
-=========================== */
 
 #shareBtn {
   position: fixed;
@@ -83,30 +71,22 @@ body {
   font-size: 22px;
 }
 
-/* ===========================
-   Swipe Hint
-=========================== */
-
 .swipe-hint {
   position: fixed;
-  bottom: 24px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 999;
-
   width: 90%;
   text-align: center;
-
-  color: #6B0F1A;          /* Deep Burgundy */
+  color: #7A1325;
   font-family: Georgia, serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.5;
-
   text-shadow:
-      0 1px 2px rgba(255,255,255,.75),
-      0 0 6px rgba(255,255,255,.4);
-
+    0 2px 4px rgba(255,255,255,.9),
+    0 0 10px rgba(255,255,255,.6);
   pointer-events: none;
   animation: fadeHint 2s infinite;
 }
@@ -115,10 +95,10 @@ body {
   display: inline-block;
   font-size: 34px;
   margin-bottom: 3px;
-
-  filter: drop-shadow(0 0 5px rgba(107,15,26,.35));
-
-  animation: swipeLeft 1.8s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 8px rgba(255,255,255,.9))
+    drop-shadow(0 0 3px #7A1325);
+  animation: swipeLeft 2.4s ease-in-out infinite;
 }
 
 .swipe-text {
@@ -127,14 +107,11 @@ body {
 
 .music-note {
   margin-top: 5px;
-  font-size: 13px;
-  color: #6B0F1A;
+  font-size: 14px;
+  color: #7A1325;
 }
 
-/* Hand Animation */
-
 @keyframes swipeLeft {
-
   0% {
     transform: translateX(40px);
     opacity: 0;
@@ -153,11 +130,9 @@ body {
     transform: translateX(-55px);
     opacity: 0;
   }
-
 }
 
 @keyframes fadeHint {
-
   0%,100% {
     opacity: .75;
   }
@@ -165,12 +140,7 @@ body {
   50% {
     opacity: 1;
   }
-
 }
-
-/* ===========================
-   Loader
-=========================== */
 
 #loader {
   position: fixed;
@@ -178,39 +148,26 @@ body {
   background: #02040a;
   color: gold;
   z-index: 99999;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   font-family: Georgia, serif;
 }
 
 .loader-mandala {
   width: 120px;
   height: 120px;
-
   border: 2px solid gold;
   border-radius: 50%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 32px;
-
   animation: rotateMandala 4s linear infinite;
 }
 
 @keyframes rotateMandala {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
