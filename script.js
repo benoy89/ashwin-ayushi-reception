@@ -1,7 +1,20 @@
 $(document).ready(function () {
-  document.addEventListener("click", () => {
-  bgMusic.play();
-    },{once:true});
+  const bgMusic = document.getElementById("bgMusic");
+  const flipSound = document.getElementById("flipSound");
+
+  function startMusic() {
+    if (bgMusic) {
+      bgMusic.play().then(() => {
+        $("#musicBtn").fadeOut();
+      }).catch(() => {});
+    }
+
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+  }
+
+  document.addEventListener("click", startMusic);
+  document.addEventListener("touchstart", startMusic);
 
   function resizeFlipbook() {
     let width = Math.min(window.innerWidth * 0.9, 430);
@@ -27,6 +40,11 @@ $(document).ready(function () {
     when: {
       turning: function () {
         playFlipSound();
+      },
+      turned: function (event, page) {
+        if (page > 1) {
+          $("#swipeHint").fadeOut();
+        }
       }
     }
   });
@@ -69,53 +87,40 @@ $(document).ready(function () {
   });
 
   function playFlipSound() {
-    let sound = document.getElementById("flipSound");
-    if (sound) {
-      sound.currentTime = 0;
-      sound.play().catch(() => {});
+    if (flipSound) {
+      flipSound.currentTime = 0;
+      flipSound.play().catch(() => {});
     }
   }
 
-  $("#musicBtn").click(function () {
-    let music = document.getElementById("bgMusic");
+  $("#musicBtn").click(function (e) {
+    e.stopPropagation();
 
-    if (music.paused) {
-      music.play();
+    if (bgMusic.paused) {
+      bgMusic.play().catch(() => {});
       $("#musicBtn").text("Pause Music");
     } else {
-      music.pause();
+      bgMusic.pause();
       $("#musicBtn").text("Play Music");
     }
- });
+  });
 
-  document.getElementById("shareBtn").onclick = () => {
- navigator.share({
-   title:"Ashwin & Ayushi Reception",
-   url:window.location.href
- });
-};
+  $("#shareBtn").click(function (e) {
+    e.stopPropagation();
 
-});
+    if (navigator.share) {
+      navigator.share({
+        title: "Ashwin & Ayushi Wedding Reception",
+        text: "You are invited to the wedding reception of Ashwin & Ayushi.",
+        url: window.location.href
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert("Invitation link copied!");
+    }
+  });
 
-window.onload = function () {
   setTimeout(function () {
-    document.getElementById("loader").style.display = "none";
+    $("#loader").fadeOut();
   }, 1200);
-};
-
-$("#flipbook").bind("turned", function () {
-  $("#swipeHint").fadeOut();
-});
-
-$("#shareBtn").click(function () {
-  if (navigator.share) {
-    navigator.share({
-      title: "Ashwin & Ayushi Wedding Reception",
-      text: "You are invited to the wedding reception of Ashwin & Ayushi.",
-      url: window.location.href
-    });
-  } else {
-    navigator.clipboard.writeText(window.location.href);
-    alert("Invitation link copied!");
-  }
 });

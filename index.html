@@ -5,20 +5,17 @@
   <meta name="theme-color" content="#0d1b2a">
   <title>Ashwin & Ayushi Reception</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta property="og:title" content="Ashwin & Ayushi Wedding Reception">
-
   <meta property="og:description" content="We warmly invite you to celebrate the Wedding Reception on 18 July 2026 at Kochi.">
-
   <meta property="og:image" content="https://benoy89.github.io/ashwin-ayushi-reception/images/preview.png">
-
   <meta property="og:url" content="https://benoy89.github.io/ashwin-ayushi-reception/">
-
   <meta property="og:type" content="website">
-
   <meta property="og:image:width" content="891">
   <meta property="og:image:height" content="891">
 
   <meta name="twitter:card" content="summary_large_image">
+
   <link rel="stylesheet" href="style.css">
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -28,32 +25,32 @@
 <body>
 
 <button id="musicBtn">Play Music</button>
-<button id="shareBtn">Share</button>
+<button id="shareBtn" aria-label="Share">Share</button>
 
 <div id="loader">
   <div class="loader-mandala">A&A</div>
   <p>Loading Invitation...</p>
 </div>
 
-<div id="swipeHint">Swipe or tap to turn page →</div>
-
 <div class="sparkles"></div>
+
+<div class="swipe-hint" id="swipeHint">
+  <div class="hand-swipe">☝️</div>
+  <div class="swipe-text">Swipe left to turn the pages</div>
+  <div class="music-note">🎵 Music starts automatically after your first tap</div>
+</div>
 
 <div id="flipbook">
   <div class="page zoom-page">
-    <img src="images/page1-cover.png">
+    <img src="images/page1-cover.png" alt="Reception Cover">
   </div>
 
   <div class="page zoom-page">
-    <img src="images/page2-photo.JPG">
+    <img src="images/page3-details.png" alt="Reception Details">
   </div>
 
   <div class="page zoom-page">
-    <img src="images/page3-details.png">
-  </div>
-
-  <div class="page zoom-page">
-    <img src="images/page4-thankyou.png">
+    <img src="images/page4-thankyou.png" alt="Thank You">
   </div>
 </div>
 
@@ -66,8 +63,10 @@
 </audio>
 
 <script src="script.js"></script>
+
 <script>
-  window.scrollTo(0,1);
+  window.scrollTo(0, 1);
 </script>
+
 </body>
 </html>
